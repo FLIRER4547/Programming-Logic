@@ -1,11 +1,13 @@
-#include <stdio.h>
 #include <cs50.h>
+#include <stdio.h>
 
 int main(void)
 {
-    float numero = get_float("Digite um número: ");
-    float numero2 = get_float("digite outro número: ");
-    float soma = numero + numero2;
-    printf("A soma entre %f e %f é igual a: \033[1;4;35m%.2f\033[0m",numero,numero2,soma);
-}
 
+    // Pede ao usuárioos número a serem calculados.
+    long numero = get_long("Digite um número: ");
+    long numero2 = get_long("digite outro número: ");
+
+    // Faz a soma e mostra no terminal.
+    printf("a soma entre eles é igual a: %li\n", numero + numero2);
+}

@@ -1,9 +1,12 @@
-#include <stdio.h>
 #include <cs50.h>
+#include <stdio.h>
 
 int main(void)
 {
-   string answer = get_string("What your name? ");
 
-    printf("Hello, \033[1;32m%s\033[0m\n",answer);
+    // Pergunta o nome do usuário.
+    string name = get_string("Qual seu nome? ");
+
+    // Faz uma saudação ao usuário.
+    printf("Olá, %s\n", name);
 }
