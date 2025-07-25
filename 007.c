@@ -5,7 +5,7 @@
 int main(void)
 {
 
-    // Peergunta ao Usuário se ele aceita calcular o IMC.
+    // Pergunta ao Usuário se ele aceita calcular o IMC.
     char answer = get_char("Você aceita calcular seu IMC?(\033[1;32my\033[0m ou \033[1;31mn\033[0m): ");
 
     // Condicionais.
@@ -20,19 +20,27 @@ int main(void)
         // Condicionais relacionadas ao resultado do IMC.
         if (imc < 18.5)
         {
+
+            // IMC menor que 18.5, significa peso abaixo do recomendado.
             printf("O seu IMC é %.2f, você está \033[1;31mabaixo\033[0m do peso recomendado.\n", imc);
         }
         else if (imc >= 18.5 && imc <= 24.9)
         {
+
+            // Se for entre 18.5 e 24.9, está bom.
         printf("\033[1;32mSeu IMC é %.2f, você está com o peso recomendado, meus parabens!\033[0m\n", imc);
         }
         else
         {
-            printf("O seu IMC é %.2f, você esta \033[1;31macima\033[0m do peso recomendado.\n", imc);
+
+            // IMC maior que 24.9, significa sobrepeso.
+            printf("O seu IMC é %.2f, você está \033[1;31macima\033[0m do peso recomendado.\n", imc);
         }
     }
+
+    // Se o usuário negar o cálculo.
     else if (answer == 'n' || answer == 'N')
     {
-        printf("OK, mas se mudar de ideia estarei aqui!");
+        printf("OK, mas se mudar de ideia estarei aqui!\n");
     }
 }
