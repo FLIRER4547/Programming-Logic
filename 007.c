@@ -7,8 +7,19 @@ int main(void)
 {
 
 
-    // Pergunta ao Usuário se ele aceita calcular o IMC.
-    char answer = get_char("Você aceita calcular seu IMC?(\033[1;32my\033[0m ou \033[1;31mn\033[0m): ");
+    // Loop até para se caso a resposta for inválida.
+    char answer;
+    do
+    {
+
+        // Pergunta se o usuário desea fazer o cálculo de IMC.
+        answer = get_char("Você aceita calcular seu IMC?(\033[1;32my\033[0m ou \033[1;31mn\033[0m): ");
+        if (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N')
+        {
+            printf("\033[1;4;31mResposta inválida, tente novamente...\033[0m\n");
+        }
+    } while (answer != 'Y' && answer != 'y' && answer != 'N' && answer != 'n');
+
 
     // Condicionais.
     if (answer == 'y' || answer == 'Y')
@@ -19,8 +30,20 @@ int main(void)
         {
 
             // Armazena os dados em variáveis e faz o calculo do IMC.
-            float p = get_float("Qual o seu peso em KG? ");
-            float al = get_float("Qual sua altura em metros? ");
+            float p, al;
+            do
+            {
+
+                // Armazena o peso na variável 'p'.
+                p = get_float("Seu peso em Kg: ");
+            } while (p <= 0);
+
+            do
+            {
+                // Armazena a altura na váriável 'al'.
+                al = get_float("Sua altura em metros: ");
+            } while (al <= 0);
+
             float imc = p / pow(al, 2);
 
             // Condicionais relacionadas ao resultado do IMC.
